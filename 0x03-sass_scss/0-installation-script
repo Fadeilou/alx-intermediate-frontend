@@ -1,0 +1,46 @@
+Steps taken to install SASS:
+
+1.  **Prerequisite: Node.js and npm**
+    Node.js (which includes npm, the Node Package Manager) is required to install SASS via npm.
+    I already have Node.js and npm installed on my system.
+    If not, one would typically install it from https://nodejs.org/ or use a version manager like NVM (Node Version Manager).
+    The project suggests:
+    ```bash
+    # Install NVM
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    # Exit and reopen terminal
+    exit
+    # (Reopen terminal)
+    # Install Node.js version 20.16 (or a suitable LTS version if 20.16 is problematic)
+    nvm install 20.16.0 
+    nvm use 20.16.0
+    ```
+    (Note: As of my current knowledge, 20.16.0 is not a standard Node.js release. I would typically use the latest LTS or a specific version like 20.13.1. For the purpose of this script, I'm following the prompt's version. If it's unavailable, I'd use a current stable one.)
+
+2.  **Install SASS**
+    The project instructions mention: `npm install sass -v 3.7.4`.
+    This command syntax is incorrect for specifying a version with `npm install`. The `-v` flag for `npm install` is not for version specification; it usually relates to verbosity or is an alias for `--version` for the npm CLI itself, not the package.
+    To install a specific version of a package, the syntax is `npm install <package-name>@<version>`.
+    Furthermore, `sass@3.7.4` on npm refers to an extremely old, likely deprecated, or placeholder package, not the modern Dart SASS or common Node-SASS (LibSass wrapper).
+
+    The current standard way to install Dart SASS (the primary implementation of SASS) globally is:
+    ```bash
+    npm install -g sass
+    ```
+    For a project-local installation:
+    ```bash
+    npm install sass --save-dev
+    ```
+    Given the CLI usage `sass <file1> <file2>` in the examples, a global installation is often more convenient. I will proceed with a global installation of the latest stable Dart SASS.
+
+    Actual command executed:
+    ```bash
+    npm install -g sass
+    ```
+
+3.  **Verify Installation**
+    After installation, verify by checking the version:
+    ```bash
+    sass --version
+    ```
+    This should output the installed Dart SASS version (e.g., 1.77.4 or newer).
